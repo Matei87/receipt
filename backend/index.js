@@ -3,57 +3,68 @@ import cors from 'cors';
 import fs from 'fs';
 import multer from 'multer';
 import request from 'request';
+import mindee from 'mindee';
+import sharp from 'sharp';
+import tesseract from 'tesseract.js';
+
+import data from './data.json' assert { type: 'json' };
 
 const upload = multer({ dest: './uploads' });
 const app = express();
+
+app.use(express.json());
 app.use(cors());
 
-app.post('/uploadFile', upload.single('file'), (req, res) => {
-  console.log(req.body);
-  console.log(req.file);
+app.get('/api', async (req, res) => {
+  try {
+    res.status(201).json(data);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
-  fs.rename(
-    `${req.file.destination}/${req.file.filename}`,
-    `${req.file.destination}/${req.file.originalname}`,
-    (err) => {
-      if (err) console.log('ERROR: ' + err);
-    }
-  );
+app.post('/uploadFile', upload.single('file'), async (req, res) => {
+  try {
+    console.log(req.body);
+    console.log(req.file);
 
-  const receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
-  const imageFile = `${req.file.destination}/${req.file.originalname}`;
-
-  request.post(
-    {
-      url: receiptOcrEndpoint,
-      formData: {
-        client_id: 'TEST', // Use 'TEST' for testing purpose
-        recognizer: 'auto', // can be 'US', 'CA', 'JP', 'SG' or 'auto'
-        ref_no: 'ocr_nodejs_123', // optional caller provided ref code
-        file: fs.createReadStream(imageFile), // the image file
-      },
-    },
-    (error, response, body) => {
-      if (error) {
-        // console.error(error);
-        res.status(400).json({ message: error });
+    fs.rename(
+      `${req.file.destination}/${req.file.filename}`,
+      `${req.file.destination}/${req.file.originalname}`,
+      (err) => {
+        if (err) console.log('ERROR: ' + err);
       }
-      console.log(body);
-      res.status(400).json({ message: body });
-      //console.log('result ', body); // Receipt OCR result in JSON;
+    );
+
+    const receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
+    const imageFile = `${req.file.destination}/${req.file.originalname}`;
+    const grayImageFile = `${req.file.destination}/gray_${req.file.originalname}`;
+    // const mindeeClient = new mindee.Client({
+    //   apiKey: process.env.MINDEE_API_KEY,
+    // });
+    // const inputSource = mindeeClient.docFromPath(imageFile);
+    // const apiResponse = await mindeeClient.parse(
+    //   mindee.product.ReceiptV5,
+    //   inputSource
+    // );
+
+    await sharp(imageFile)
+      //.greyscale()
+      .resize(1191, 2000, sharp.fit.cover)
+      .threshold(190)
+      //.negate({ alpha: false })
+      .toFile(grayImageFile);
+
+    const request = await tesseract.recognize(grayImageFile, 'ron');
+    if (request.data.text) {
+      res.status(201).json(request.data.text);
     }
-  );
 
-  // if (fs.existsSync(imageFile)) {
-  //   fs.unlink(imageFile, (err) => {
-  //     if (err) {
-  //       console.log(err);
-  //     }
-  //     console.log('FILE Deleted !!!');
-  //   });
-  // }
-
-  //res.status(201).json(body);
+    fs.unlinkSync(imageFile);
+    fs.unlinkSync(grayImageFile);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 const PORT = 5000;

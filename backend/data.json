@@ -1,0 +1,498 @@
+{
+  "data": {
+    "id": "3d8709d6-62ad-46d0-ae14-e3f80aabd020",
+    "filename": "scan.jpg",
+    "inference": {
+      "pages": [
+        {
+          "orientation": {
+            "value": 0,
+            "reconstructed": false,
+            "pageId": 0
+          },
+          "id": 0,
+          "prediction": {
+            "lineItems": [
+              {
+                "confidence": 0.97,
+                "polygon": [
+                  [0.247, 0.158],
+                  [0.706, 0.169],
+                  [0.705, 0.21],
+                  [0.246, 0.199]
+                ],
+                "description": "5008424 CLET CERESIT CT 127 5 KG",
+                "quantity": 1,
+                "totalAmount": 17.43,
+                "unitPrice": 17.43
+              },
+              {
+                "confidence": 0.95,
+                "polygon": [
+                  [0.246, 0.213],
+                  [0.71, 0.224],
+                  [0.708, 0.306],
+                  [0.244, 0.294]
+                ],
+                "description": "7004409 5015612 ROLA PINZA PESK RUL CASABELLA INT. 8.5",
+                "quantity": 1,
+                "totalAmount": 7.54,
+                "unitPrice": 7.54
+              },
+              {
+                "confidence": 0.94,
+                "polygon": [
+                  [0.247, 0.29],
+                  [0.713, 0.301],
+                  [0.712, 0.326],
+                  [0.247, 0.314]
+                ],
+                "description": "L AMORSA 1 L 1 BUC",
+                "totalAmount": 67.12,
+                "unitPrice": 67.12
+              }
+            ],
+            "supplierCompanyRegistrations": [],
+            "category": {
+              "value": "food",
+              "reconstructed": false,
+              "confidence": 0.73
+            },
+            "date": {
+              "value": "2023-07-25",
+              "reconstructed": false,
+              "pageId": 0,
+              "polygon": [
+                [0.402, 0.893],
+                [0.511, 0.893],
+                [0.511, 0.913],
+                [0.402, 0.913]
+              ],
+              "confidence": 0.99,
+              "boundingBox": [
+                [0.402, 0.893],
+                [0.511, 0.893],
+                [0.511, 0.913],
+                [0.402, 0.913]
+              ],
+              "dateObject": "2023-07-25T00:00:00.000Z"
+            },
+            "documentType": {
+              "value": "EXPENSE RECEIPT",
+              "reconstructed": false,
+              "confidence": 1
+            },
+            "locale": {
+              "reconstructed": false,
+              "confidence": 0.66,
+              "language": null,
+              "country": null,
+              "currency": "RON"
+            },
+            "subcategory": {
+              "value": "restaurant",
+              "reconstructed": false,
+              "confidence": 0.64
+            },
+            "supplierAddress": {
+              "value": "sc dedeman srl s ent tiranr 426 sector 2 bucuresti",
+              "reconstructed": false,
+              "pageId": 0,
+              "polygon": [
+                [0.29, 0.096],
+                [0.668, 0.096],
+                [0.668, 0.133],
+                [0.29, 0.133]
+              ],
+              "confidence": 0.79,
+              "boundingBox": [
+                [0.29, 0.096],
+                [0.668, 0.096],
+                [0.668, 0.133],
+                [0.29, 0.133]
+              ]
+            },
+            "supplierName": {
+              "value": "DEDEMAN",
+              "reconstructed": false,
+              "pageId": 0,
+              "polygon": [
+                [0.402, 0.066],
+                [0.568, 0.066],
+                [0.568, 0.086],
+                [0.402, 0.086]
+              ],
+              "confidence": 0.88,
+              "boundingBox": [
+                [0.402, 0.066],
+                [0.568, 0.066],
+                [0.568, 0.086],
+                [0.402, 0.086]
+              ]
+            },
+            "supplierPhoneNumber": {
+              "reconstructed": false,
+              "polygon": [],
+              "confidence": 0,
+              "boundingBox": [
+                [null, null],
+                [null, null],
+                [null, null],
+                [null, null]
+              ]
+            },
+            "taxes": [
+              {
+                "value": 14.7,
+                "reconstructed": false,
+                "pageId": 0,
+                "polygon": [
+                  [0.311, 0.461],
+                  [0.733, 0.461],
+                  [0.733, 0.478],
+                  [0.311, 0.478]
+                ],
+                "confidence": 0.97,
+                "boundingBox": [
+                  [0.311, 0.461],
+                  [0.733, 0.461],
+                  [0.733, 0.478],
+                  [0.311, 0.478]
+                ],
+                "rate": 19,
+                "code": "TVA"
+              }
+            ],
+            "time": {
+              "value": "18:21",
+              "reconstructed": false,
+              "pageId": 0,
+              "polygon": [
+                [0.573, 0.897],
+                [0.653, 0.897],
+                [0.653, 0.914],
+                [0.573, 0.914]
+              ],
+              "confidence": 0.99,
+              "boundingBox": [
+                [0.573, 0.897],
+                [0.653, 0.897],
+                [0.653, 0.914],
+                [0.573, 0.914]
+              ]
+            },
+            "tip": {
+              "reconstructed": false,
+              "polygon": [],
+              "confidence": 0,
+              "boundingBox": [
+                [null, null],
+                [null, null],
+                [null, null],
+                [null, null]
+              ]
+            },
+            "totalAmount": {
+              "value": 92.09,
+              "reconstructed": false,
+              "pageId": 0,
+              "polygon": [
+                [0.681, 0.366],
+                [0.732, 0.366],
+                [0.732, 0.394],
+                [0.681, 0.394]
+              ],
+              "confidence": 0.99,
+              "boundingBox": [
+                [0.681, 0.366],
+                [0.732, 0.366],
+                [0.732, 0.394],
+                [0.681, 0.394]
+              ]
+            },
+            "totalNet": {
+              "reconstructed": false,
+              "polygon": [],
+              "confidence": 0,
+              "boundingBox": [
+                [null, null],
+                [null, null],
+                [null, null],
+                [null, null]
+              ]
+            },
+            "totalTax": {
+              "value": 14.7,
+              "reconstructed": false,
+              "pageId": 0,
+              "polygon": [],
+              "confidence": 0.97,
+              "boundingBox": [
+                [null, null],
+                [null, null],
+                [null, null],
+                [null, null]
+              ]
+            }
+          },
+          "extras": {}
+        }
+      ],
+      "extras": [],
+      "isRotationApplied": true,
+      "product": {
+        "features": [
+          "locale",
+          "category",
+          "subcategory",
+          "document_type",
+          "date",
+          "time",
+          "total_amount",
+          "total_net",
+          "total_tax",
+          "tip",
+          "taxes",
+          "supplier_name",
+          "supplier_company_registrations",
+          "supplier_address",
+          "supplier_phone_number",
+          "orientation",
+          "line_items"
+        ],
+        "name": "mindee/expense_receipts",
+        "type": "standard",
+        "version": "5.0"
+      },
+      "endpointName": "expense_receipts",
+      "endpointVersion": "5",
+      "prediction": {
+        "lineItems": [
+          {
+            "confidence": 0.97,
+            "polygon": [
+              [0.247, 0.158],
+              [0.706, 0.169],
+              [0.705, 0.21],
+              [0.246, 0.199]
+            ],
+            "description": "5008424 CLET CERESIT CT 127 5 KG",
+            "quantity": 1,
+            "totalAmount": 17.43,
+            "unitPrice": 17.43,
+            "pageId": 0
+          },
+          {
+            "confidence": 0.95,
+            "polygon": [
+              [0.246, 0.213],
+              [0.71, 0.224],
+              [0.708, 0.306],
+              [0.244, 0.294]
+            ],
+            "description": "7004409 5015612 ROLA PINZA PESK RUL CASABELLA INT. 8.5",
+            "quantity": 1,
+            "totalAmount": 7.54,
+            "unitPrice": 7.54,
+            "pageId": 0
+          },
+          {
+            "confidence": 0.94,
+            "polygon": [
+              [0.247, 0.29],
+              [0.713, 0.301],
+              [0.712, 0.326],
+              [0.247, 0.314]
+            ],
+            "description": "L AMORSA 1 L 1 BUC",
+            "totalAmount": 67.12,
+            "unitPrice": 67.12,
+            "pageId": 0
+          }
+        ],
+        "supplierCompanyRegistrations": [],
+        "category": {
+          "value": "food",
+          "reconstructed": false,
+          "confidence": 0.73
+        },
+        "date": {
+          "value": "2023-07-25",
+          "reconstructed": false,
+          "pageId": 0,
+          "polygon": [
+            [0.402, 0.893],
+            [0.511, 0.893],
+            [0.511, 0.913],
+            [0.402, 0.913]
+          ],
+          "confidence": 0.99,
+          "boundingBox": [
+            [0.402, 0.893],
+            [0.511, 0.893],
+            [0.511, 0.913],
+            [0.402, 0.913]
+          ],
+          "dateObject": "2023-07-25T00:00:00.000Z"
+        },
+        "documentType": {
+          "value": "EXPENSE RECEIPT",
+          "reconstructed": false,
+          "confidence": 1
+        },
+        "locale": {
+          "reconstructed": false,
+          "confidence": 0.66,
+          "language": null,
+          "country": null,
+          "currency": "RON"
+        },
+        "subcategory": {
+          "value": "restaurant",
+          "reconstructed": false,
+          "confidence": 0.64
+        },
+        "supplierAddress": {
+          "value": "sc dedeman srl s ent tiranr 426 sector 2 bucuresti",
+          "reconstructed": false,
+          "pageId": 0,
+          "polygon": [
+            [0.29, 0.096],
+            [0.668, 0.096],
+            [0.668, 0.133],
+            [0.29, 0.133]
+          ],
+          "confidence": 0.79,
+          "boundingBox": [
+            [0.29, 0.096],
+            [0.668, 0.096],
+            [0.668, 0.133],
+            [0.29, 0.133]
+          ]
+        },
+        "supplierName": {
+          "value": "DEDEMAN",
+          "reconstructed": false,
+          "pageId": 0,
+          "polygon": [
+            [0.402, 0.066],
+            [0.568, 0.066],
+            [0.568, 0.086],
+            [0.402, 0.086]
+          ],
+          "confidence": 0.88,
+          "boundingBox": [
+            [0.402, 0.066],
+            [0.568, 0.066],
+            [0.568, 0.086],
+            [0.402, 0.086]
+          ]
+        },
+        "supplierPhoneNumber": {
+          "reconstructed": false,
+          "polygon": [],
+          "confidence": 0,
+          "boundingBox": [
+            [null, null],
+            [null, null],
+            [null, null],
+            [null, null]
+          ]
+        },
+        "taxes": [
+          {
+            "value": 14.7,
+            "reconstructed": false,
+            "pageId": 0,
+            "polygon": [
+              [0.311, 0.461],
+              [0.733, 0.461],
+              [0.733, 0.478],
+              [0.311, 0.478]
+            ],
+            "confidence": 0.97,
+            "boundingBox": [
+              [0.311, 0.461],
+              [0.733, 0.461],
+              [0.733, 0.478],
+              [0.311, 0.478]
+            ],
+            "rate": 19,
+            "code": "TVA"
+          }
+        ],
+        "time": {
+          "value": "18:21",
+          "reconstructed": false,
+          "pageId": 0,
+          "polygon": [
+            [0.573, 0.897],
+            [0.653, 0.897],
+            [0.653, 0.914],
+            [0.573, 0.914]
+          ],
+          "confidence": 0.99,
+          "boundingBox": [
+            [0.573, 0.897],
+            [0.653, 0.897],
+            [0.653, 0.914],
+            [0.573, 0.914]
+          ]
+        },
+        "tip": {
+          "reconstructed": false,
+          "polygon": [],
+          "confidence": 0,
+          "boundingBox": [
+            [null, null],
+            [null, null],
+            [null, null],
+            [null, null]
+          ]
+        },
+        "totalAmount": {
+          "value": 92.09,
+          "reconstructed": false,
+          "pageId": 0,
+          "polygon": [
+            [0.681, 0.366],
+            [0.732, 0.366],
+            [0.732, 0.394],
+            [0.681, 0.394]
+          ],
+          "confidence": 0.99,
+          "boundingBox": [
+            [0.681, 0.366],
+            [0.732, 0.366],
+            [0.732, 0.394],
+            [0.681, 0.394]
+          ]
+        },
+        "totalNet": {
+          "reconstructed": false,
+          "polygon": [],
+          "confidence": 0,
+          "boundingBox": [
+            [null, null],
+            [null, null],
+            [null, null],
+            [null, null]
+          ]
+        },
+        "totalTax": {
+          "value": 14.7,
+          "reconstructed": false,
+          "pageId": 0,
+          "polygon": [],
+          "confidence": 0.97,
+          "boundingBox": [
+            [null, null],
+            [null, null],
+            [null, null],
+            [null, null]
+          ]
+        }
+      }
+    }
+  }
+}

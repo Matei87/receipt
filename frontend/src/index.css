@@ -4,5 +4,22 @@
   box-sizing: border-box;
 }
 
-body {
+table {
+  margin: 4rem auto;
+  width: 450px;
+}
+
+.rc-table-thead .rc-table-cell {
+  background-color: #000;
+  color: #eee;
+  padding: 0.5rem 0;
+}
+.rc-table-tbody .rc-table-cell {
+  background-color: #eee;
+  padding: 0.5rem 0;
+}
+
+.rc-table-row,
+.rc-table-cell {
+  border: 1px solid black;
 }

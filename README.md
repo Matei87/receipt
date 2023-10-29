@@ -1,4 +1,4 @@
-# Scan Receip App
+# Scan Receipt App
 
 # Receipt
 
