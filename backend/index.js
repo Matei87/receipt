@@ -2,26 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
 import multer from 'multer';
-import request from 'request';
-import mindee from 'mindee';
 import sharp from 'sharp';
-import tesseract from 'tesseract.js';
-
-import data from './data.json' assert { type: 'json' };
 
 const upload = multer({ dest: './uploads' });
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-
-app.get('/api', async (req, res) => {
-  try {
-    res.status(201).json(data);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
 
 app.post('/uploadFile', upload.single('file'), async (req, res) => {
   try {
@@ -36,28 +23,34 @@ app.post('/uploadFile', upload.single('file'), async (req, res) => {
       }
     );
 
-    const receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt';
     const imageFile = `${req.file.destination}/${req.file.originalname}`;
     const grayImageFile = `${req.file.destination}/gray_${req.file.originalname}`;
-    // const mindeeClient = new mindee.Client({
-    //   apiKey: process.env.MINDEE_API_KEY,
-    // });
-    // const inputSource = mindeeClient.docFromPath(imageFile);
-    // const apiResponse = await mindeeClient.parse(
-    //   mindee.product.ReceiptV5,
-    //   inputSource
-    // );
 
     await sharp(imageFile)
-      //.greyscale()
+      .greyscale()
       .resize(1191, 2000, sharp.fit.cover)
-      .threshold(190)
-      //.negate({ alpha: false })
+      //.threshold(250)
+      .negate({ alpha: false })
       .toFile(grayImageFile);
 
-    const request = await tesseract.recognize(grayImageFile, 'ron');
-    if (request.data.text) {
-      res.status(201).json(request.data.text);
+    var imageAsBase64 = fs.readFileSync(grayImageFile, { encoding: 'base64' });
+    const formData = new FormData();
+    formData.append('base64Image', 'data:image/jpg;base64,' + imageAsBase64);
+    formData.append('OCREngine', '2');
+
+    const request = await fetch('https://api.ocr.space/parse/image', {
+      method: 'POST',
+      headers: {
+        apiKey: '927a0897c488957',
+      },
+      body: formData,
+    });
+
+    console.log(request);
+    if (request.status === 200) {
+      const result = await request.json();
+      console.log('2 ', result.ParsedResults[0].ParsedText);
+      res.status(201).json(result.ParsedResults);
     }
 
     fs.unlinkSync(imageFile);
