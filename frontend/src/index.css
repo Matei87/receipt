@@ -10,6 +10,11 @@ table {
 }
 
 .rc-table-thead .rc-table-cell {
+  background-color: rgb(25, 135, 84) !important;
+  color: rgb(33, 37, 41) !important;
+}
+
+.rc-table-thead .rc-table-cell {
   background-color: #000;
   color: #eee;
   padding: 0.5rem 0;
@@ -21,7 +26,7 @@ table {
 
 .rc-table-row,
 .rc-table-cell {
-  border: 1px dotted black;
+  border: 1px solid black;
   text-align: center;
 }
 
@@ -31,3 +36,7 @@ table {
   word-wrap: break-word;
   white-space: nowrap;
 } */
+
+.rc-table-expand-icon-col {
+  width: 100px;
+}

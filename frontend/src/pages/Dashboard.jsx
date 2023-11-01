@@ -14,41 +14,39 @@ const Dashboard = () => {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
-      width: 20,
+      width: 30,
+      className: 'border',
     },
     {
       title: 'Data',
       dataIndex: 'data',
       key: 'data',
-      width: 100,
+      width: 400,
       ellipsis: true,
+      className: 'border',
     },
-    {
-      title: '',
-      dataIndex: '',
-      key: 'modal',
-      width: 25,
-      render: (e, f, g) => {
-        console.log(e, f, g, selectedModal);
-        return (
-          <button
-            type='button'
-            className='btn btn-primary'
-            data-bs-toggle='modal'
-            data-bs-target={`#modal_${e.id}`}
-            onClick={() => setSelectedModal(e)}
-          >
-            Open modal
-          </button>
-        );
-      },
-    },
+    // {
+    //   title: '',
+    //   dataIndex: '',
+    //   key: 'modal',
+    //   width: 25,
+    //   render: (e, f, g) => {
+    //     console.log(e, f, g, selectedModal);
+    //     return (
+    //       <button
+    //         type='button'
+    //         className='btn btn-primary'
+    //         data-bs-toggle='modal'
+    //         data-bs-target={`#modal_${e.id}`}
+    //         onClick={() => setSelectedModal(e)}
+    //       >
+    //         Open modal
+    //       </button>
+    //     );
+    //   },
+    // },
   ];
 
-  const onExpand = (expanded, record) => {
-    // eslint-disable-next-line no-console
-    console.log('onExpand', expanded, record);
-  };
   const data = receipt.map((info) => ({
     id: info.id,
     data: info.text,
@@ -61,12 +59,15 @@ const Dashboard = () => {
       <Table
         columns={columns}
         data={data}
-        expandable={{
-          expandRowByClick: true,
-          expandedRowRender: (record) => <p>extra: {record.a}</p>,
-          onExpand,
-          // expandIcon: '&#8679',
-        }}
+        // expandable={{
+        //   expandRowByClick: true,
+        //   expandedRowRender: (record) => <p>{record.data}</p>,
+        //   expandIcon: (props) => (
+        //     <>
+        //       {props?.expanded ? <>&#x2191; collapse </> : <>&#x2193; expand</>}
+        //     </>
+        //   ),
+        // }}
         className='table'
       />
 
