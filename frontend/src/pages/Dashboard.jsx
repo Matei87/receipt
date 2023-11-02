@@ -5,17 +5,25 @@ import { ReceiptContext } from '../Context/context';
 
 const Dashboard = () => {
   const [selectedModal, setSelectedModal] = useState({});
-  const { receipt } = useContext(ReceiptContext);
+  const { receipt, removeReceipt } = useContext(ReceiptContext);
 
-  console.log('Dashboard ', receipt, selectedModal);
+  const handleDelete = (record, e) => {
+    e.preventDefault();
+    console.log(record);
+    removeReceipt(record);
+  };
+
+  const handleModal = (record, e) => {
+    e.preventDefault();
+    setSelectedModal(record);
+  };
 
   const columns = [
     {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
-      width: 30,
-      className: 'border',
+      width: 40,
     },
     {
       title: 'Data',
@@ -23,32 +31,37 @@ const Dashboard = () => {
       key: 'data',
       width: 400,
       ellipsis: true,
-      className: 'border',
     },
-    // {
-    //   title: '',
-    //   dataIndex: '',
-    //   key: 'modal',
-    //   width: 25,
-    //   render: (e, f, g) => {
-    //     console.log(e, f, g, selectedModal);
-    //     return (
-    //       <button
-    //         type='button'
-    //         className='btn btn-primary'
-    //         data-bs-toggle='modal'
-    //         data-bs-target={`#modal_${e.id}`}
-    //         onClick={() => setSelectedModal(e)}
-    //       >
-    //         Open modal
-    //       </button>
-    //     );
-    //   },
-    // },
+    {
+      title: 'Actions',
+      dataIndex: '',
+      key: 'modal',
+      width: 100,
+      render: (_, record) => (
+        <div className='d-flex justify-content-around'>
+          <button
+            type='button'
+            className='btn btn-primary'
+            data-bs-toggle='modal'
+            data-bs-target='#staticBackdrop'
+            onClick={(e) => handleModal(record, e)}
+          >
+            Open
+          </button>
+          <button
+            type='button'
+            className='btn btn-danger'
+            onClick={(e) => handleDelete(record.id, e)}
+          >
+            Delete
+          </button>
+        </div>
+      ),
+    },
   ];
 
   const data = receipt.map((info) => ({
-    id: info.id,
+    id: info.id.slice(0, 8),
     data: info.text,
     key: info.id,
   }));

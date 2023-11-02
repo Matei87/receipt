@@ -14,7 +14,6 @@ const Homepage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target, file);
 
     if (file) {
       const formData = new FormData();
@@ -43,14 +42,14 @@ const Homepage = () => {
     }
   };
 
-  console.log(secondData, secondIsLoading, secondError);
-  console.log('HOMEPAGE ', receipt);
+  console.log('HOMEPAGE1 ', secondData, secondIsLoading, secondError);
+  console.log('HOMEPAGE2 ', receipt);
   return (
     <>
       <h2 className='text-center my-5'>Home</h2>
-      <div className='container mt-5'>
+      <div className='container'>
         <div className='container-fluid d-flex flex-column gap-3'>
-          <h3 className='mt-4'>React File Upload</h3>
+          <h3 className='mt-4'>Upload receipt</h3>
           <form onSubmit={handleSubmit}>
             <div className='input-group mb-3'>
               <label className='input-group-text' htmlFor='inputGroupFile01'>
@@ -83,7 +82,7 @@ const Homepage = () => {
             </button>
           </form>
 
-          <p>{secondError && secondError}</p>
+          <p>{secondError}</p>
           <div className='container text-center w-100 h-100 w-md-100'>
             <div className='row'>
               <div className='col bg-success'>
@@ -107,8 +106,10 @@ const Homepage = () => {
             <button
               type='submit'
               className='btn btn-dark mt-4'
-              onClick={() => addReceipt(secondData)}
-              disabled={secondIsLoading}
+              onClick={() => {
+                addReceipt(secondData);
+                setFile('');
+              }}
             >
               Save Receipt
             </button>

@@ -8,7 +8,7 @@ const Modal = ({ selectedModal }) => {
   return (
     <div
       className='modal fade'
-      id={`modal_${selectedModal.id}`}
+      id='staticBackdrop'
       data-bs-backdrop='static'
       data-bs-keyboard='false'
       tabIndex='-1'
@@ -28,10 +28,8 @@ const Modal = ({ selectedModal }) => {
               aria-label='Close'
             ></button>
           </div>
-          <div className='modal-body'>
-            <p style={{ whiteSpace: 'pre' }}>
-              {/* {receipt[selectedModal.ID]['text']} */}
-            </p>
+          <div className='modal-body overflow-auto' style={{ height: '400px' }}>
+            <p style={{ whiteSpace: 'pre' }}>{selectedModal.data}</p>
           </div>
           <div className='modal-footer'>
             <button

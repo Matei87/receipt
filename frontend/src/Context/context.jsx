@@ -22,8 +22,12 @@ export const ReceiptProvider = (props) => {
         receipt,
         addReceipt: (localReceipt) =>
           setReceipt((prev) => [...prev, localReceipt]),
-        removeReceipt: (id) =>
-          setReceipt((prev) => prev.filter((p) => p.key !== id)),
+        removeReceipt: (id) => {
+          const newReceipts = receipt.filter(
+            (data) => data.id.slice(0, 8) !== id
+          );
+          setReceipt(newReceipts);
+        },
       }}
     >
       {props.children}

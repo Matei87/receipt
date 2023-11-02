@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import LogoIcon from '../assets/logo.svg';
 import MenuIcon from '../assets/menu.svg';
 import ChartIcon from '../assets/chart.svg';
-import UserIcon from '../assets/image.svg';
+import HomeIcon from '../assets/home.svg';
 import BackgroundImage from '../assets/back.jpg';
 
 const MySidebar = () => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <Sidebar
       collapsed={!isExpanded}
@@ -55,7 +55,7 @@ const MySidebar = () => {
       <Menu menuItemStyles={{ button: { padding: ' 0 24px' } }}>
         <MenuItem
           component={<Link to='/' />}
-          icon={<img src={UserIcon} alt='UserIcon' width={35} height={35} />}
+          icon={<img src={HomeIcon} alt='HomeIcon' width={35} height={35} />}
           hide-label='true'
           className='text-dark'
         >

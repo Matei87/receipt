@@ -40,3 +40,7 @@ table {
 .rc-table-expand-icon-col {
   width: 100px;
 }
+
+.rc-table-row-expand-icon-cell {
+  cursor: pointer;
+}
